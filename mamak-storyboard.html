@@ -1,0 +1,397 @@
+<title>Kalau Mamak Hilang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a production storyboard sheet — 9:16 frames beside shot notes, two per row on desktop, stacked on phones */
+:root{
+  --bg:#f3f1ea; --paper:#ffffff; --ink:#1d2326; --muted:#5c676b; --line:#d9d6cc; --accent:#b8462f;
+  /* artwork palette: fixed, it is the episode's own visual world */
+  --night:#0f2a33; --tube:#e8f5d0; --teh:#c98b4f; --red:#d93a2b; --blue:#2e6fd8; --sign:#f2c230; --milo:#2f7d4f; --cream:#fff6e5;
+  --display:"Bungee","Arial Black",system-ui,sans-serif;
+  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12181a; --paper:#1a2225; --ink:#ece8de; --muted:#9aa5a8; --line:#2d383b; --accent:#f08a6c; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12181a; --paper:#1a2225; --ink:#ece8de; --muted:#9aa5a8; --line:#2d383b; --accent:#f08a6c; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+
+header{display:flex;flex-direction:column;gap:10px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,6vw,56px);line-height:1.02;margin:0;text-wrap:balance}
+.lede{max-width:65ch;color:var(--muted);margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+.timeline{display:flex;flex-direction:column;gap:8px}
+.bar{display:flex;height:34px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.bar span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;min-width:0}
+.ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+.style{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.style>div{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.style h3{margin:0;font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.swatches{display:flex;flex-wrap:wrap;gap:6px}
+.sw{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;font-family:var(--mono);color:var(--muted)}
+.sw i{width:34px;height:34px;border-radius:50%;border:1px solid var(--line)}
+.style p{margin:0;font-size:14px}
+.style ul{margin:0;padding-left:18px;font-size:14px}
+
+.board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:860px){.board{grid-template-columns:1fr}}
+.shot{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px}
+@media (max-width:420px){.shot{grid-template-columns:1fr}.shot svg{max-width:200px}}
+.shot svg{width:100%;max-width:100%;aspect-ratio:9/16;border-radius:8px;display:block;background:var(--night)}
+.notes{display:flex;flex-direction:column;gap:8px;min-width:0}
+.head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.num{font-family:var(--display);font-size:22px;color:var(--accent);line-height:1}
+.time{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:99px;color:#fff}
+.notes h2{margin:0;font-size:17px;font-weight:800;text-wrap:balance}
+dl{margin:0;display:grid;grid-template-columns:62px minmax(0,1fr);gap:4px 10px;font-size:13.5px}
+dt{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:3px}
+dd{margin:0}
+.vo{font-weight:600}
+.en{display:block;color:var(--muted);font-weight:400;font-size:12.5px}
+
+.c-hook{background:#d93a2b}.c-day{background:#2e6fd8}.c-year{background:#2f7d4f}.c-twist{background:#8a5a2b}.c-ask{background:#a3363f}.c-end{background:#3d4a4f}
+
+footer{color:var(--muted);font-size:13px;max-width:65ch}
+
+/* artwork */
+.f-d{font-family:var(--display)} .f-b{font-family:var(--body);font-weight:800} .f-m{font-family:var(--mono)}
+@keyframes vanish{0%,35%{opacity:1}60%,100%{opacity:.08}}
+@keyframes pop{0%,20%{opacity:0;transform:translateY(6px)}35%,100%{opacity:1;transform:none}}
+@keyframes pour{to{stroke-dashoffset:0}}
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.a-vanish{animation:vanish 4s ease-in-out infinite alternate}
+.a-pop1,.a-pop2,.a-pop3{animation:pop 4.5s ease-out infinite}
+.a-pop2{animation-delay:.5s}.a-pop3{animation-delay:1s}
+.a-pour{stroke-dasharray:6 5;stroke-dashoffset:60;animation:pour 1.2s linear infinite}
+.a-flick{animation:flick 2.6s ease-in-out infinite}
+.a-flick2{animation:flick 3.4s ease-in-out infinite .8s}
+.a-pulse{animation:pulse 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Storyboard · Episode 01 of 30 · Week 1: Everyday Malaysia</div>
+    <h1>Kalau Mamak Tiba-Tiba Hilang</h1>
+    <p class="lede">What happens to Malaysia when every mamak stall disappears overnight? A 75-second flat-graphic animation. It starts with the funny late-night chaos, then turns into a question about where Malaysians actually meet each other.</p>
+    <div class="meta"><span>Format: 9:16 vertical</span><span>Length: ~75s</span><span>VO: BM / Manglish, English subtitles</span><span>Platform: TikTok · Reels · Shorts</span></div>
+  </header>
+
+  <section class="timeline" aria-label="Episode timeline">
+    <div class="bar">
+      <span class="c-hook" style="flex:8">HOOK</span>
+      <span class="c-day" style="flex:18">DAY 1</span>
+      <span class="c-year" style="flex:12">YEAR 1</span>
+      <span class="c-twist" style="flex:24">TWIST</span>
+      <span class="c-ask" style="flex:8">ASK</span>
+      <span class="c-end" style="flex:5">END</span>
+    </div>
+    <div class="ticks"><span>0s</span><span>15s</span><span>30s</span><span>45s</span><span>60s</span><span>75s</span></div>
+  </section>
+
+  <section class="style" aria-label="Look and feel">
+    <div>
+      <h3>Palette: a mamak at 2am</h3>
+      <div class="swatches">
+        <span class="sw"><i style="background:#0f2a33"></i>night</span>
+        <span class="sw"><i style="background:#e8f5d0"></i>tube light</span>
+        <span class="sw"><i style="background:#c98b4f"></i>teh tarik</span>
+        <span class="sw"><i style="background:#d93a2b"></i>red stool</span>
+        <span class="sw"><i style="background:#2e6fd8"></i>blue stool</span>
+        <span class="sw"><i style="background:#f2c230"></i>signboard</span>
+      </div>
+    </div>
+    <div>
+      <h3>Graphic style</h3>
+      <p>Flat vector shapes, no outlines, chunky signboard lettering for the on-screen text. Every scene is built from mamak objects: plastic stools, tube lights, steel cups and the yellow signboard.</p>
+    </div>
+    <div>
+      <h3>Motion rules</h3>
+      <ul>
+        <li>Hook: things <b>dissolve</b> into dust</li>
+        <li>Text pops in word by word, synced to the VO</li>
+        <li>Loose, bouncy motion in Day 1, slow and still from Year 1 onward</li>
+        <li>Sound: mamak chatter that gets <b>quieter</b> through the episode</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="board" aria-label="Shots">
+
+    <!-- 1 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="A busy mamak stall at night fading away">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <g class="a-vanish">
+          <rect x="14" y="40" width="152" height="30" rx="3" fill="#f2c230"/>
+          <text x="90" y="54" text-anchor="middle" class="f-d" font-size="10" fill="#0f2a33">RESTORAN</text>
+          <text x="90" y="65" text-anchor="middle" class="f-d" font-size="9" fill="#d93a2b">MAMAK 24 JAM</text>
+          <rect x="30" y="82" width="50" height="4" rx="2" fill="#e8f5d0" class="a-flick"/>
+          <rect x="100" y="82" width="50" height="4" rx="2" fill="#e8f5d0" class="a-flick2"/>
+          <rect x="20" y="150" width="62" height="8" rx="2" fill="#e8f5d0"/>
+          <rect x="98" y="150" width="62" height="8" rx="2" fill="#e8f5d0"/>
+          <rect x="48" y="158" width="6" height="34" fill="#9fb3a6"/><rect x="126" y="158" width="6" height="34" fill="#9fb3a6"/>
+          <circle cx="24" cy="186" r="9" fill="#d93a2b"/><circle cx="78" cy="186" r="9" fill="#2e6fd8"/>
+          <circle cx="102" cy="186" r="9" fill="#2e6fd8"/><circle cx="156" cy="186" r="9" fill="#d93a2b"/>
+          <rect x="36" y="138" width="8" height="12" rx="1" fill="#c98b4f"/><rect x="60" y="140" width="8" height="10" rx="1" fill="#2f7d4f"/>
+          <rect x="116" y="138" width="8" height="12" rx="1" fill="#c98b4f"/><rect x="138" y="141" width="10" height="9" rx="1" fill="#f2c230"/>
+        </g>
+        <text x="90" y="250" text-anchor="middle" class="f-b" font-size="12" fill="#fff6e5">Bayangkan esok…</text>
+        <text x="90" y="276" text-anchor="middle" class="f-d" font-size="20" fill="#f2c230">MAMAK</text>
+        <text x="90" y="298" text-anchor="middle" class="f-d" font-size="20" fill="#d93a2b">HILANG.</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">01</span><span class="time">0:00–0:03</span><span class="tag c-hook">Hook</span></div>
+        <h2>The mamak dissolves</h2>
+        <dl>
+          <dt>Visual</dt><dd>A busy mamak at 2am: signboard, tube lights, stools, cups. In one beat, everything breaks into dust from top to bottom and leaves an empty lot.</dd>
+          <dt>Motion</dt><dd>0.5s hold, then a 1.2s particle dissolve. "MAMAK HILANG." slams in with a small screen shake.</dd>
+          <dt>VO</dt><dd class="vo">"Bayangkan esok kau bangun… dan semua mamak kat Malaysia, hilang."<span class="en">Imagine you wake up tomorrow and every mamak in Malaysia is gone.</span></dd>
+          <dt>Sound</dt><dd>Loud chatter, the clink of a spoon in a cup, then a hard cut to silence.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="Phone group chat asking where to go for mamak">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <rect x="30" y="30" width="120" height="240" rx="16" fill="#1b3a45"/>
+        <rect x="36" y="44" width="108" height="212" rx="8" fill="#fff6e5"/>
+        <text x="90" y="60" text-anchor="middle" class="f-b" font-size="8" fill="#0f2a33">GENG LEPAK (8)</text>
+        <g class="a-pop1"><rect x="42" y="72" width="66" height="18" rx="9" fill="#e3ded1"/><text x="50" y="84" class="f-b" font-size="8" fill="#0f2a33">Jom mamak?</text></g>
+        <g class="a-pop2"><rect x="62" y="98" width="76" height="18" rx="9" fill="#2e6fd8"/><text x="70" y="110" class="f-b" font-size="8" fill="#fff">Mamak mana bro</text></g>
+        <g class="a-pop3"><rect x="42" y="124" width="80" height="18" rx="9" fill="#e3ded1"/><text x="50" y="136" class="f-b" font-size="8" fill="#0f2a33">Semua dah tutup??</text></g>
+        <rect x="42" y="168" width="96" height="20" rx="10" fill="#fff" stroke="#c9c3b4"/>
+        <text x="52" y="181" class="f-m" font-size="7" fill="#5c676b">mamak near me</text>
+        <text x="90" y="214" text-anchor="middle" class="f-d" font-size="16" fill="#d93a2b">0</text>
+        <text x="90" y="228" text-anchor="middle" class="f-m" font-size="7" fill="#5c676b">results found</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">02</span><span class="time">0:03–0:08</span><span class="tag c-hook">Hook</span></div>
+        <h2>Group chat panic</h2>
+        <dl>
+          <dt>Visual</dt><dd>A phone fills the screen. Chat bubbles stack up in the group chat, then the map search for "mamak near me" returns 0 results.</dd>
+          <dt>Motion</dt><dd>Bubbles bounce in on each notification sound. The "0" spins in like a slot machine.</dd>
+          <dt>VO</dt><dd class="vo">"Group chat mula panik. 'Jom mamak?'… tak ada jawapan."<span class="en">The group chat panics. "Mamak, anyone?"… no answer.</span></dd>
+          <dt>Sound</dt><dd>Three quick message pings, then a sad error beep.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="Four small scenes of things that fail on day one">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <text x="90" y="34" text-anchor="middle" class="f-d" font-size="22" fill="#2e6fd8">DAY 1</text>
+        <rect x="12" y="50" width="76" height="110" rx="6" fill="#1b3a45"/>
+        <rect x="24" y="66" width="52" height="34" rx="3" fill="#2f7d4f"/><circle cx="50" cy="83" r="7" fill="#fff6e5"/>
+        <text x="50" y="122" text-anchor="middle" class="f-b" font-size="8" fill="#fff6e5">Match 3AM</text>
+        <text x="50" y="136" text-anchor="middle" class="f-b" font-size="8" fill="#f2c230">tengok mana?</text>
+        <rect x="92" y="50" width="76" height="110" rx="6" fill="#1b3a45"/>
+        <rect x="112" y="68" width="36" height="28" rx="2" fill="#e8f5d0"/><rect x="129" y="68" width="2" height="28" fill="#9fb3a6"/>
+        <text x="130" y="122" text-anchor="middle" class="f-b" font-size="8" fill="#fff6e5">Study group</text>
+        <text x="130" y="136" text-anchor="middle" class="f-b" font-size="8" fill="#f2c230">lepak mana?</text>
+        <rect x="12" y="166" width="76" height="110" rx="6" fill="#1b3a45"/>
+        <path d="M38 182 h24 l-4 40 h-16 z" fill="none" stroke="#e8f5d0" stroke-width="2"/>
+        <text x="50" y="238" text-anchor="middle" class="f-b" font-size="8" fill="#fff6e5">Milo ais</text>
+        <text x="50" y="252" text-anchor="middle" class="f-b" font-size="8" fill="#f2c230">siapa buat?</text>
+        <rect x="92" y="166" width="76" height="110" rx="6" fill="#1b3a45"/>
+        <circle cx="130" cy="200" r="18" fill="none" stroke="#e8f5d0" stroke-width="2"/>
+        <path d="M130 200 v-11 M130 200 l8 4" stroke="#d93a2b" stroke-width="2"/>
+        <text x="130" y="238" text-anchor="middle" class="f-b" font-size="8" fill="#fff6e5">2:00 pagi</text>
+        <text x="130" y="252" text-anchor="middle" class="f-b" font-size="8" fill="#f2c230">lapar…</text>
+        <text x="90" y="302" text-anchor="middle" class="f-b" font-size="9" fill="#fff6e5" class="a-pulse">Malaysia: not ok</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">03</span><span class="time">0:08–0:20</span><span class="tag c-day">Day 1</span></div>
+        <h2>Four small disasters</h2>
+        <dl>
+          <dt>Visual</dt><dd>A 2×2 grid of mini scenes that pop in one by one: a football match at 3am, a study group, an empty Milo ais cup, a clock at 2am.</dd>
+          <dt>Motion</dt><dd>Quick, comedic cuts. Each tile wobbles in on the beat. The empty cup tips over.</dd>
+          <dt>VO</dt><dd class="vo">"Day 1. Match pukul 3 pagi, nak tengok kat mana? Study group, lepak mana? Milo ais, siapa nak buat?"<span class="en">Day 1. A 3am match: where do we watch? Study group: where do we sit? Milo ais: who's making it?</span></dd>
+          <dt>Sound</dt><dd>Upbeat percussion with a "boing" on each tile.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="Teh tarik being pulled between two cups, the stream snapping">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <path d="M66 50 h44 l-6 36 h-32 z" fill="#9fb3a6"/>
+        <line x1="88" y1="88" x2="88" y2="150" stroke="#c98b4f" stroke-width="5" stroke-linecap="round" class="a-pour"/>
+        <line x1="88" y1="172" x2="88" y2="226" stroke="#c98b4f" stroke-width="5" stroke-linecap="round" class="a-pour"/>
+        <path d="M80 152 l6 8 -5 6 7 6" fill="none" stroke="#f2c230" stroke-width="2"/>
+        <path d="M60 230 h56 l-6 40 h-44 z" fill="#9fb3a6"/>
+        <rect x="64" y="234" width="48" height="10" fill="#c98b4f"/>
+        <text x="90" y="300" text-anchor="middle" class="f-b" font-size="10" fill="#fff6e5">…yang hilang bukan cuma air.</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">04</span><span class="time">0:20–0:26</span><span class="tag c-day">Day 1</span></div>
+        <h2>The pull snaps</h2>
+        <dl>
+          <dt>Visual</dt><dd>Close-up of a teh tarik being pulled from cup to cup. The stream stretches longer and longer, then breaks in the middle.</dd>
+          <dt>Motion</dt><dd>Slow motion. The camera follows the stream down, and at the break the whole frame drops in saturation. This is the switch from funny to serious.</dd>
+          <dt>VO</dt><dd class="vo">"Tapi lama-lama, kita sedar… yang hilang bukan cuma teh tarik."<span class="en">But slowly we realise… it's not just the teh tarik we lost.</span></dd>
+          <dt>Sound</dt><dd>The music stops. Only the pouring sound, then one string note.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="Apartment block with each person alone on their phone">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <text x="90" y="34" text-anchor="middle" class="f-d" font-size="22" fill="#2f7d4f">YEAR 1</text>
+        <rect x="24" y="50" width="132" height="190" fill="#1b3a45"/>
+        <g fill="#2a4e5a">
+          <rect x="34" y="62" width="30" height="34"/><rect x="75" y="62" width="30" height="34"/><rect x="116" y="62" width="30" height="34"/>
+          <rect x="34" y="108" width="30" height="34"/><rect x="75" y="108" width="30" height="34"/><rect x="116" y="108" width="30" height="34"/>
+          <rect x="34" y="154" width="30" height="34"/><rect x="75" y="154" width="30" height="34"/><rect x="116" y="154" width="30" height="34"/>
+          <rect x="34" y="200" width="30" height="34"/><rect x="75" y="200" width="30" height="34"/><rect x="116" y="200" width="30" height="34"/>
+        </g>
+        <g fill="#0f2a33">
+          <circle cx="49" cy="74" r="5"/><circle cx="131" cy="74" r="5"/><circle cx="90" cy="120" r="5"/>
+          <circle cx="49" cy="166" r="5"/><circle cx="131" cy="166" r="5"/><circle cx="90" cy="212" r="5"/>
+        </g>
+        <g fill="#7fd1ff" class="a-pulse">
+          <rect x="46" y="84" width="6" height="8" rx="1"/><rect x="128" y="84" width="6" height="8" rx="1"/><rect x="87" y="130" width="6" height="8" rx="1"/>
+          <rect x="46" y="176" width="6" height="8" rx="1"/><rect x="128" y="176" width="6" height="8" rx="1"/><rect x="87" y="222" width="6" height="8" rx="1"/>
+        </g>
+        <rect x="30" y="256" width="120" height="34" rx="4" fill="#fff6e5"/>
+        <text x="90" y="270" text-anchor="middle" class="f-m" font-size="7" fill="#5c676b">NEW CAFÉ · ARTISAN</text>
+        <text x="90" y="284" text-anchor="middle" class="f-b" font-size="10" fill="#d93a2b">Teh Tarik RM12</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">05</span><span class="time">0:26–0:38</span><span class="tag c-year">Year 1</span></div>
+        <h2>Everyone alone, together</h2>
+        <dl>
+          <dt>Visual</dt><dd>The camera pulls back from one flat to a whole apartment block. In every window, one person sits alone with a blue phone glow. Then cut to a fancy new café: "Teh Tarik RM12".</dd>
+          <dt>Motion</dt><dd>Slow zoom out. The windows light up one at a time, all the same. The price tag drops in with a "ka-ching".</dd>
+          <dt>VO</dt><dd class="vo">"Year 1. Semua orang duduk rumah. Scroll. Sorang-sorang. Kafe baru buka, teh tarik dua belas ringgit. Tapi tak ada siapa borak dengan meja sebelah."<span class="en">Year 1. Everyone stays home, scrolling, alone. New cafés open with RM12 teh tarik, but nobody talks to the next table.</span></dd>
+          <dt>Sound</dt><dd>Low ambient hum and faint phone taps.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="Diagram of home, work and an empty third place">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <text x="90" y="40" text-anchor="middle" class="f-d" font-size="14" fill="#f2c230">THIRD PLACE</text>
+        <text x="90" y="56" text-anchor="middle" class="f-m" font-size="7" fill="#9fb3a6">Ray Oldenburg, 1989</text>
+        <circle cx="54" cy="110" r="30" fill="#2e6fd8"/>
+        <text x="54" y="107" text-anchor="middle" class="f-d" font-size="16" fill="#fff6e5">1</text>
+        <text x="54" y="122" text-anchor="middle" class="f-b" font-size="8" fill="#fff6e5">RUMAH</text>
+        <circle cx="126" cy="110" r="30" fill="#d93a2b"/>
+        <text x="126" y="107" text-anchor="middle" class="f-d" font-size="16" fill="#fff6e5">2</text>
+        <text x="126" y="122" text-anchor="middle" class="f-b" font-size="8" fill="#fff6e5">KERJA</text>
+        <line x1="66" y1="138" x2="82" y2="168" stroke="#9fb3a6" stroke-dasharray="3 3"/>
+        <line x1="114" y1="138" x2="98" y2="168" stroke="#9fb3a6" stroke-dasharray="3 3"/>
+        <circle cx="90" cy="206" r="40" fill="none" stroke="#f2c230" stroke-width="3" stroke-dasharray="6 5" class="a-pulse"/>
+        <text x="90" y="204" text-anchor="middle" class="f-d" font-size="22" fill="#f2c230">3</text>
+        <text x="90" y="222" text-anchor="middle" class="f-b" font-size="9" fill="#f2c230">MAMAK?</text>
+        <text x="90" y="284" text-anchor="middle" class="f-b" font-size="9" fill="#fff6e5">Tempat kita jadi</text>
+        <text x="90" y="298" text-anchor="middle" class="f-b" font-size="9" fill="#fff6e5">sebahagian komuniti</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">06</span><span class="time">0:38–0:52</span><span class="tag c-twist">Twist</span></div>
+        <h2>The idea: a third place</h2>
+        <dl>
+          <dt>Visual</dt><dd>A clean infographic. Circle 1 is home, circle 2 is work, and circle 3 is a dashed empty ring that slowly fills with a mamak stool icon.</dd>
+          <dt>Motion</dt><dd>The circles draw themselves in. The dashed lines connect them. Ring 3 pulses gently like a heartbeat.</dd>
+          <dt>VO</dt><dd class="vo">"Ahli sosiologi Ray Oldenburg panggil benda ni 'third place'. Rumah tempat pertama. Kerja tempat kedua. Tempat ketiga, tempat kita jadi sebahagian dari komuniti."<span class="en">Sociologist Ray Oldenburg calls this the "third place". Home is the first, work the second. The third is where we become part of a community.</span></dd>
+          <dt>Sound</dt><dd>Warm piano starts. A soft "ding" as each circle appears.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="Top-down mamak table with different drinks around it">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <circle cx="90" cy="150" r="70" fill="#e8f5d0" opacity=".14"/>
+        <rect x="45" y="105" width="90" height="90" rx="6" fill="#e8f5d0"/>
+        <circle cx="90" cy="76" r="14" fill="#d93a2b"/><circle cx="90" cy="224" r="14" fill="#2e6fd8"/>
+        <circle cx="30" cy="150" r="14" fill="#2e6fd8"/><circle cx="150" cy="150" r="14" fill="#d93a2b"/>
+        <g class="a-pop1"><circle cx="90" cy="122" r="9" fill="#c98b4f"/><text x="90" y="140" text-anchor="middle" class="f-m" font-size="5" fill="#0f2a33">teh tarik</text></g>
+        <g class="a-pop2"><circle cx="62" cy="150" r="9" fill="#2a1a10"/><text x="62" y="168" text-anchor="middle" class="f-m" font-size="5" fill="#0f2a33">kopi O</text></g>
+        <g class="a-pop3"><circle cx="118" cy="150" r="9" fill="#e86a8f"/><text x="118" y="168" text-anchor="middle" class="f-m" font-size="5" fill="#0f2a33">bandung</text></g>
+        <g class="a-pop2"><circle cx="90" cy="176" r="9" fill="#2f7d4f"/><text x="90" y="192" text-anchor="middle" class="f-m" font-size="5" fill="#0f2a33">Milo</text></g>
+        <text x="90" y="272" text-anchor="middle" class="f-b" font-size="10" fill="#fff6e5">Tak ada orang tanya</text>
+        <text x="90" y="288" text-anchor="middle" class="f-b" font-size="10" fill="#f2c230">kau siapa.</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">07</span><span class="time">0:52–1:02</span><span class="tag c-twist">Twist</span></div>
+        <h2>One table, every drink</h2>
+        <dl>
+          <dt>Visual</dt><dd>A top-down view of one mamak table with four stools. Four different drinks slide in: teh tarik, kopi O, bandung, Milo. Each cup stands for a different person. We never show faces, only the drinks.</dd>
+          <dt>Motion</dt><dd>Cups slide in from each side like hands placing them. Then a soft glow fills the table.</dd>
+          <dt>VO</dt><dd class="vo">"Kat meja mamak, tak ada orang tanya kau siapa. Teh tarik, kopi O, Milo, bandung, semua duduk satu meja."<span class="en">At a mamak table, nobody asks who you are. Every drink shares the same table.</span></dd>
+          <dt>Sound</dt><dd>Chatter slowly returns, warm and blurred.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="An empty plastic stool under a spotlight with a question">
+        <rect width="180" height="320" fill="#0f2a33"/>
+        <path d="M70 0 h40 l40 220 h-120 z" fill="#e8f5d0" opacity=".12"/>
+        <ellipse cx="90" cy="214" rx="40" ry="8" fill="#000" opacity=".3"/>
+        <ellipse cx="90" cy="170" rx="30" ry="9" fill="#d93a2b"/>
+        <path d="M64 172 l-6 40 M116 172 l6 40 M78 176 l-3 36 M102 176 l3 36" stroke="#b02c20" stroke-width="5" stroke-linecap="round"/>
+        <text x="90" y="56" text-anchor="middle" class="f-b" font-size="10" fill="#fff6e5">Kau rindu makanan dia…</text>
+        <text x="90" y="80" text-anchor="middle" class="f-d" font-size="15" fill="#f2c230">ATAU ORANG</text>
+        <text x="90" y="98" text-anchor="middle" class="f-d" font-size="15" fill="#f2c230">DIA?</text>
+        <rect x="40" y="252" width="100" height="26" rx="13" fill="#fff6e5"/>
+        <text x="90" y="269" text-anchor="middle" class="f-b" font-size="9" fill="#0f2a33">Komen bawah</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">08</span><span class="time">1:02–1:10</span><span class="tag c-ask">Tanya Balik</span></div>
+        <h2>The question back</h2>
+        <dl>
+          <dt>Visual</dt><dd>One empty red plastic stool under a spotlight. The question appears above it, and a "Komen bawah" (comment below) pill pops up at the bottom.</dd>
+          <dt>Motion</dt><dd>Complete stillness for 1 second, then the text types out slowly.</dd>
+          <dt>VO</dt><dd class="vo">"Jadi soalan aku: kalau mamak hilang, kau rindu makanan dia… atau orang-orang dia?"<span class="en">So my question: if mamak disappeared, would you miss the food… or the people?</span></dd>
+          <dt>Sound</dt><dd>Silence, then a single spoon tap on a glass.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 9 -->
+    <article class="shot">
+      <svg viewBox="0 0 180 320" role="img" aria-label="Series end card with next episode teaser">
+        <rect width="180" height="320" fill="#f2c230"/>
+        <text x="90" y="110" text-anchor="middle" class="f-d" font-size="16" fill="#0f2a33">KALAU</text>
+        <text x="90" y="132" text-anchor="middle" class="f-d" font-size="16" fill="#0f2a33">TIBA-TIBA</text>
+        <text x="90" y="158" text-anchor="middle" class="f-d" font-size="22" fill="#d93a2b">HILANG</text>
+        <text x="90" y="180" text-anchor="middle" class="f-m" font-size="8" fill="#0f2a33">EP 01 / 30</text>
+        <rect x="30" y="226" width="120" height="44" rx="6" fill="#0f2a33"/>
+        <text x="90" y="244" text-anchor="middle" class="f-m" font-size="7" fill="#9fb3a6">ESOK · EP 02</text>
+        <text x="90" y="260" text-anchor="middle" class="f-b" font-size="10" fill="#fff6e5">Kalau Grab hilang…</text>
+      </svg>
+      <div class="notes">
+        <div class="head"><span class="num">09</span><span class="time">1:10–1:15</span><span class="tag c-end">End card</span></div>
+        <h2>Series logo and next episode</h2>
+        <dl>
+          <dt>Visual</dt><dd>The yellow signboard fills the screen with the series logo "Kalau Tiba-Tiba Hilang", EP 01/30. A dark tag teases tomorrow's episode: Grab.</dd>
+          <dt>Motion</dt><dd>The signboard flickers on like a tube light. "HILANG" briefly breaks apart and re-forms. This is the series' recurring sting.</dd>
+          <dt>VO</dt><dd class="vo">"Esok: kalau Grab tiba-tiba hilang."<span class="en">Tomorrow: what if Grab suddenly disappeared?</span></dd>
+          <dt>Sound</dt><dd>A 2-second branded jingle: a tube light buzz plus a tabla hit.</dd>
+        </dl>
+      </div>
+    </article>
+  </section>
+
+  <footer>Production notes: the frames are rough layouts, not final art. Build the final version in Canva, After Effects or CapCut with the same palette. Shot 07 shows people only through their drinks, which keeps the unity message clear of anything 3R-sensitive.</footer>
+</div>

@@ -1,0 +1,29 @@
+# rendered videos (large; re-render from the compositions)
+renders/
+*.mp4
+
+# HyperFrames caches, snapshots and media ledger
+.hyperframes/
+.media/
+
+# dependencies
+node_modules/
+
+# local backups and temporary render copies
+mamak-backups/
+mamak-cantonese-render/
+
+# TTS intermediates: per-phrase clips and assembly work files
+**/phrases/
+**/work/
+**/vo-samples/
+
+# scratch images and logs
+fan*.png
+fans.png
+*.log
+
+# HyperFrames Studio thumbnail cache
+.thumbnails/
+.waveform-cache/
+**/trim/

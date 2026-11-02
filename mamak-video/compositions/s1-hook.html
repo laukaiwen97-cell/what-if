@@ -1,0 +1,235 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s1-stage { position: absolute; inset: 0; }
+    #s1-art { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+    #s1-pcanvas { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+    .s1-line { position: absolute; left: 0; width: 1080px; text-align: center; }
+    #s1-ask { top: 548px; }
+    #s1-ask span { display: inline-block; padding: 16px 40px 20px; border-radius: 22px; background: #1d2326; color: #fff6e5; font: 900 76px/1 Inter, sans-serif; letter-spacing: -0.02em; box-shadow: 0 10px 0 rgba(0,0,0,.25); }
+    #s1-title { top: 600px; font: 400 168px/1.02 "Archivo Black", sans-serif; letter-spacing: -0.01em; color: #fff6e5; }
+    #s1-title span { display: block; }
+    #s1-title .hl { color: #f2c230; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <div id="s1-stage">
+      <svg id="s1-art" viewBox="0 0 1080 1920">
+        <defs>
+          <clipPath id="s1-floorclip"><rect x="40" y="1010" width="1000" height="550" /></clipPath>
+        </defs>
+        <rect width="1080" height="1920" fill="#10343c" />
+        <rect y="1560" width="1080" height="360" fill="#0b262c" />
+        <rect y="1556" width="1080" height="8" fill="#1d4a53" />
+        <rect id="s1-outline" x="40" y="170" width="1000" height="1390" fill="none" stroke="#fff6e5" stroke-opacity=".35" stroke-width="4" stroke-dasharray="22 16" opacity="0" />
+        <g id="s1-facade" class="s1-piece"><rect x="0" y="120" width="1080" height="1440" fill="#173f48" /><rect x="0" y="556" width="40" height="1004" fill="#22505a" /><rect x="1040" y="556" width="40" height="1004" fill="#22505a" /></g>
+
+        <!-- interior: ceiling, back wall, tiled floor -->
+        <g id="s1-interior" class="s1-piece">
+          <rect x="40" y="600" width="1000" height="160" fill="#f4f3ee" />
+          <rect x="40" y="760" width="1000" height="250" fill="#ece6d6" />
+          <rect x="40" y="950" width="1000" height="60" fill="#d9d2c0" />
+          <rect x="40" y="1010" width="1000" height="550" fill="#e6e2d8" />
+          <g clip-path="url(#s1-floorclip)" stroke="#cfc9bb" stroke-width="3">
+            <path d="M540 860L-600 1560M540 860L-360 1560M540 860L-120 1560M540 860L120 1560M540 860L360 1560M540 860L600 1560M540 860L840 1560M540 860L1080 1560M540 860L1320 1560M540 860L1560 1560M540 860L1800 1560" />
+            <path d="M40 1035H1040M40 1068H1040M40 1110H1040M40 1165H1040M40 1240H1040M40 1340H1040M40 1470H1040" />
+          </g>
+        </g>
+        <!-- downlights, two rows that flicker -->
+        <g id="s1-tube1" class="s1-piece" fill="#fffbe0" stroke="#d8d4c4" stroke-width="3">
+          <ellipse cx="150" cy="622" rx="18" ry="6" /><ellipse cx="280" cy="622" rx="18" ry="6" /><ellipse cx="410" cy="622" rx="18" ry="6" /><ellipse cx="670" cy="622" rx="18" ry="6" /><ellipse cx="800" cy="622" rx="18" ry="6" /><ellipse cx="930" cy="622" rx="18" ry="6" />
+          <ellipse cx="120" cy="742" rx="30" ry="9" /><ellipse cx="330" cy="742" rx="30" ry="9" /><ellipse cx="540" cy="742" rx="30" ry="9" /><ellipse cx="750" cy="742" rx="30" ry="9" /><ellipse cx="960" cy="742" rx="30" ry="9" />
+        </g>
+        <g id="s1-tube2" class="s1-piece" fill="#fffbe0" stroke="#d8d4c4" stroke-width="3">
+          <ellipse cx="200" cy="684" rx="24" ry="8" /><ellipse cx="370" cy="684" rx="24" ry="8" /><ellipse cx="540" cy="684" rx="24" ry="8" /><ellipse cx="710" cy="684" rx="24" ry="8" /><ellipse cx="880" cy="684" rx="24" ry="8" />
+        </g>
+        <!-- ceiling fans -->
+        <g id="s1-fans" class="s1-piece">
+          <rect x="268" y="606" width="6" height="74" fill="#8a9792" /><rect x="806" y="606" width="6" height="74" fill="#8a9792" />
+          <g transform="translate(271 688) scale(1 0.24)"><g id="s1-fan1" fill="#b9c3c2"><rect x="-150" y="-14" width="150" height="28" rx="12" /><rect x="-150" y="-14" width="150" height="28" rx="12" transform="rotate(120)" /><rect x="-150" y="-14" width="150" height="28" rx="12" transform="rotate(240)" /></g></g>
+          <g transform="translate(809 688) scale(1 0.24)"><g id="s1-fan2" fill="#b9c3c2"><rect x="-150" y="-14" width="150" height="28" rx="12" /><rect x="-150" y="-14" width="150" height="28" rx="12" transform="rotate(120)" /><rect x="-150" y="-14" width="150" height="28" rx="12" transform="rotate(240)" /></g></g>
+          <ellipse cx="271" cy="688" rx="24" ry="11" fill="#7f8b88" /><ellipse cx="809" cy="688" rx="24" ry="11" fill="#7f8b88" />
+        </g>
+        <!-- back wall: TV, drinks station, LED menu, nasi kandar display -->
+        <g id="s1-wall" class="s1-piece">
+          <rect x="66" y="780" width="190" height="112" rx="6" fill="#1d2326" /><rect x="76" y="790" width="170" height="92" fill="#2f7d4f" /><path d="M161 790v92M86 800h150v72H86z" fill="none" stroke="#e8f5d0" stroke-width="2" opacity=".7" />
+          <rect x="300" y="776" width="480" height="92" rx="6" fill="#173e8f" />
+          <g fill="#f2c230"><rect x="312" y="786" width="66" height="12" /><rect x="390" y="786" width="66" height="12" /><rect x="468" y="786" width="66" height="12" /><rect x="546" y="786" width="66" height="12" /><rect x="624" y="786" width="66" height="12" /><rect x="702" y="786" width="66" height="12" /></g>
+          <g><rect x="312" y="806" width="66" height="50" fill="#e2a64b" /><rect x="390" y="806" width="66" height="50" fill="#c9562f" /><rect x="468" y="806" width="66" height="50" fill="#f3dfc0" /><rect x="546" y="806" width="66" height="50" fill="#6b3f22" /><rect x="624" y="806" width="66" height="50" fill="#e86a8f" /><rect x="702" y="806" width="66" height="50" fill="#2f7d4f" /></g>
+          <rect x="66" y="920" width="270" height="90" fill="#a9b4b0" /><rect x="66" y="914" width="270" height="10" fill="#c4ccc9" />
+          <rect x="96" y="850" width="46" height="66" rx="8" fill="#b9c3c2" /><rect x="156" y="862" width="40" height="54" rx="8" fill="#b9c3c2" /><rect x="212" y="872" width="70" height="44" rx="6" fill="#d93a2b" />
+          <rect x="560" y="890" width="450" height="64" fill="#cfe9f0" opacity=".75" />
+          <g><rect x="580" y="922" width="70" height="26" rx="4" fill="#e08a2c" /><rect x="660" y="922" width="70" height="26" rx="4" fill="#4f8a3a" /><rect x="740" y="922" width="70" height="26" rx="4" fill="#b8332a" /><rect x="820" y="922" width="70" height="26" rx="4" fill="#f2c230" /><rect x="900" y="922" width="90" height="26" rx="4" fill="#7a4a2a" /></g>
+          <rect x="556" y="886" width="458" height="8" fill="#e8f5f8" />
+          <rect x="560" y="954" width="450" height="56" fill="#b9c3c2" />
+        </g>
+        <!-- maroon ceiling beam -->
+        <g id="s1-awning" class="s1-piece"><rect x="40" y="552" width="1000" height="52" fill="#7a2a22" /><rect x="40" y="600" width="1000" height="8" fill="#5c1d17" /></g>
+        <!-- customers and the man at the counter, faceless -->
+        <g id="s1-people" class="s1-piece">
+          <g fill="none" stroke="#9aa5a3" stroke-width="7"><rect x="282" y="1010" width="62" height="62" rx="4" /><rect x="738" y="1010" width="62" height="62" rx="4" /></g>
+          <g fill="#9aa5a3"><rect x="172" y="1084" width="6" height="66" /><rect x="252" y="1084" width="6" height="66" /><rect x="817" y="1084" width="6" height="66" /><rect x="897" y="1084" width="6" height="66" /><rect x="286" y="1084" width="5" height="54" /><rect x="335" y="1084" width="5" height="54" /><rect x="742" y="1084" width="5" height="54" /><rect x="791" y="1084" width="5" height="54" /></g>
+          <circle cx="880" cy="858" r="22" fill="#4b5d63" /><rect x="846" y="878" width="68" height="40" rx="18" fill="#4b5d63" />
+          <circle cx="215" cy="1000" r="24" fill="#4b5d75" /><rect x="178" y="1022" width="74" height="76" rx="22" fill="#4b5d75" />
+          <circle cx="860" cy="1004" r="24" fill="#6d5a4c" /><rect x="823" y="1026" width="74" height="72" rx="22" fill="#6d5a4c" />
+        </g>
+        <!-- granite tables, back row small, front row large -->
+        <g id="s1-tables" class="s1-piece">
+          <rect x="140" y="1070" width="190" height="14" rx="3" fill="#b8bdb9" /><rect x="231" y="1084" width="8" height="70" fill="#8a9792" />
+          <rect x="770" y="1070" width="190" height="14" rx="3" fill="#b8bdb9" /><rect x="861" y="1084" width="8" height="70" fill="#8a9792" />
+          <rect x="120" y="1180" width="360" height="28" rx="4" fill="#c3c7c3" /><rect x="120" y="1208" width="360" height="10" fill="#9aa5a3" /><rect x="290" y="1218" width="20" height="210" fill="#9aa5a3" /><rect x="230" y="1424" width="140" height="12" rx="4" fill="#8a9792" />
+          <rect x="600" y="1180" width="360" height="28" rx="4" fill="#c3c7c3" /><rect x="600" y="1208" width="360" height="10" fill="#9aa5a3" /><rect x="770" y="1218" width="20" height="210" fill="#9aa5a3" /><rect x="710" y="1424" width="140" height="12" rx="4" fill="#8a9792" />
+          <g fill="#aab0ad"><circle cx="170" cy="1190" r="3" /><circle cx="260" cy="1196" r="2" /><circle cx="400" cy="1188" r="3" /><circle cx="680" cy="1192" r="3" /><circle cx="840" cy="1188" r="2" /><circle cx="920" cy="1196" r="3" /></g>
+        </g>
+        <g id="s1-cups" class="s1-piece">
+          <path d="M198 1112h56l-6 68h-44z" fill="#c98b4f" /><rect x="196" y="1106" width="60" height="18" rx="6" fill="#f3dfc0" />
+          <path d="M360 1084h50l-5 96h-40z" fill="#6b3f22" /><rect x="368" y="1094" width="14" height="14" fill="#e4f1f4" /><rect x="386" y="1104" width="14" height="14" fill="#e4f1f4" />
+          <path d="M660 1118h52l-5 62h-42z" fill="#2a1a10" /><rect x="658" y="1112" width="56" height="12" rx="5" fill="#4a3324" />
+          <ellipse cx="840" cy="1176" rx="78" ry="12" fill="#c4ccc9" /><ellipse cx="840" cy="1166" rx="58" ry="12" fill="#e2a64b" /><path d="M800 1166q40-14 80 0" fill="none" stroke="#b97a2a" stroke-width="4" />
+        </g>
+        <!-- two diners in the front chairs, backs to camera -->
+        <g id="s1-diners" class="s1-piece">
+          <rect x="181" y="1180" width="28" height="26" fill="#a86f4a" /><path d="M133 1340v-110q0-34 62-34t62 34v110z" fill="#3a6ea5" /><circle cx="195" cy="1158" r="40" fill="#1d1a18" /><rect x="128" y="1196" width="22" height="60" rx="10" fill="#a86f4a" transform="rotate(25 139 1196)" /><rect x="240" y="1196" width="22" height="60" rx="10" fill="#a86f4a" transform="rotate(-25 251 1196)" />
+          <rect x="876" y="1180" width="28" height="26" fill="#8d5b3b" /><path d="M828 1340v-110q0-34 62-34t62 34v110z" fill="#c9562f" /><circle cx="890" cy="1156" r="42" fill="#2a2420" /><rect x="823" y="1196" width="22" height="60" rx="10" fill="#8d5b3b" transform="rotate(25 834 1196)" /><rect x="935" y="1196" width="22" height="60" rx="10" fill="#8d5b3b" transform="rotate(-25 946 1196)" />
+        </g>
+        <!-- slatted steel chairs, backs to camera -->
+        <g id="s1-stools" class="s1-piece" fill="#b7bfbd" stroke="#7f8b88" stroke-width="3">
+          <g><rect x="130" y="1236" width="130" height="96" rx="6" fill="none" stroke-width="10" /><rect x="138" y="1258" width="114" height="10" /><rect x="138" y="1284" width="114" height="10" /><rect x="138" y="1310" width="114" height="10" /><rect x="132" y="1332" width="8" height="112" /><rect x="250" y="1332" width="8" height="112" /></g>
+          <g><rect x="345" y="1236" width="130" height="96" rx="6" fill="none" stroke-width="10" /><rect x="353" y="1258" width="114" height="10" /><rect x="353" y="1284" width="114" height="10" /><rect x="353" y="1310" width="114" height="10" /><rect x="347" y="1332" width="8" height="112" /><rect x="465" y="1332" width="8" height="112" /></g>
+          <g><rect x="610" y="1236" width="130" height="96" rx="6" fill="none" stroke-width="10" /><rect x="618" y="1258" width="114" height="10" /><rect x="618" y="1284" width="114" height="10" /><rect x="618" y="1310" width="114" height="10" /><rect x="612" y="1332" width="8" height="112" /><rect x="730" y="1332" width="8" height="112" /></g>
+          <g><rect x="825" y="1236" width="130" height="96" rx="6" fill="none" stroke-width="10" /><rect x="833" y="1258" width="114" height="10" /><rect x="833" y="1284" width="114" height="10" /><rect x="833" y="1310" width="114" height="10" /><rect x="827" y="1332" width="8" height="112" /><rect x="945" y="1332" width="8" height="112" /></g>
+        </g>
+        <!-- signboard -->
+        <g id="s1-sign" class="s1-piece">
+          <rect x="50" y="184" width="980" height="360" rx="12" fill="#a8261b" />
+          <rect x="50" y="170" width="980" height="360" rx="12" fill="#d93a2b" />
+          <rect x="66" y="186" width="948" height="328" rx="6" fill="#f2c230" />
+          <text x="480" y="252" text-anchor="middle" font-family="Archivo Black" font-size="50" fill="#2e6fd8" letter-spacing="6">RESTORAN</text>
+          <text id="s1-mamak" x="480" y="398" text-anchor="middle" font-family="Archivo Black" font-size="150" fill="#d93a2b">MAMAK</text>
+          <circle cx="905" cy="300" r="78" fill="#2f7d4f" /><circle cx="905" cy="300" r="66" fill="none" stroke="#fff6e5" stroke-width="4" />
+          <text x="905" y="300" text-anchor="middle" font-family="Archivo Black" font-size="52" fill="#fff6e5">24</text>
+          <text x="905" y="340" text-anchor="middle" font-family="Archivo Black" font-size="30" fill="#f2c230">JAM</text>
+          <rect x="66" y="430" width="948" height="84" fill="#2f7d4f" />
+          <text x="540" y="484" text-anchor="middle" font-family="Inter" font-weight="900" font-size="36" fill="#fff6e5" letter-spacing="2">ROTI CANAI · TEH TARIK · NASI KANDAR</text>
+        </g>
+        <g id="s1-dust"></g>
+        <g id="s1-lone" opacity="0">
+          <g id="s1-face">
+            <path d="M330 300q0-170 210-176t210 176q-20-60-210-70t-210 70z" fill="#1d1a18" />
+            <circle cx="540" cy="370" r="200" fill="#c68e66" />
+            <path d="M342 300q30-150 198-156t198 156q-40-90-198-96t-198 96z" fill="#1d1a18" />
+            <path d="M420 262q50-36 96-6M564 256q46-30 96 6" fill="none" stroke="#1d1a18" stroke-width="14" stroke-linecap="round" />
+            <circle cx="466" cy="336" r="46" fill="#fff" /><circle cx="614" cy="336" r="46" fill="#fff" />
+            <circle cx="466" cy="340" r="13" fill="#1d1a18" /><circle cx="614" cy="340" r="13" fill="#1d1a18" />
+            <ellipse cx="540" cy="470" rx="44" ry="60" fill="#3a1414" /><ellipse cx="540" cy="500" rx="26" ry="20" fill="#c9562f" />
+            <ellipse cx="350" cy="440" rx="56" ry="92" fill="#b47d58" transform="rotate(14 350 440)" /><ellipse cx="730" cy="440" rx="56" ry="92" fill="#b47d58" transform="rotate(-14 730 440)" />
+          </g>
+          <path id="s1-sweat" d="M712 230q18 30 0 44q-18-14 0-44z" fill="#9fd3f0" />
+        </g>
+      </svg>
+      <canvas id="s1-pcanvas" width="1080" height="1920"></canvas>
+      <div id="s1-ask" class="s1-line"><span>Bayangkan esok…</span></div>
+      <div id="s1-title" class="s1-line"><span id="s1-w1">SEMUA</span><span id="s1-w2">MAMAK</span><span id="s1-w3" class="hl">HILANG.</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // re-timed to the narration: old scene times map onto the voice
+      const MAPK = [[0,0],[0.8,3.15],[1.05,3.4],[2.45,5.6],[4.32,6.72],[4.6,7]];
+      const T = (t) => { for (let i = 1; i < MAPK.length; i++) { const [a0, b0] = MAPK[i - 1], [a1, b1] = MAPK[i]; if (t <= a1) return b0 + ((t - a0) * (b1 - b0)) / (a1 - a0); } const [a, b] = MAPK[MAPK.length - 1]; return b + (t - a); };
+      ["to", "fromTo", "set"].forEach((m) => { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = T(a[i]); return f(...a); }; });
+      const ease = "power2.in";
+
+      // ceiling fans keep turning until they dissolve
+      tl.fromTo("#s1-fan1", { rotation: 0 }, { rotation: 1600, svgOrigin: "0 0", duration: 3.7, ease: "none" }, 0);
+      tl.fromTo("#s1-fan2", { rotation: 0 }, { rotation: 1600, svgOrigin: "0 0", duration: 3.7, ease: "none" }, 0);
+
+      // seeded dust: small squares born where pieces were, drifting up
+      let seed = 0x5eed1;
+      const rnd = () => ((seed = (Math.imul(1664525, seed) + 1013904223) >>> 0) / 4294967296);
+      const dust = document.getElementById("s1-dust");
+      const bands = [[170, 540, 1.95], [552, 760, 1.2], [770, 1010, 1.65], [990, 1200, 1.5], [1180, 1440, 1.85], [600, 1560, 2.15], [120, 1560, 2.4]];
+      const cols = ["#f2c230", "#d93a2b", "#2e6fd8", "#fff6e5", "#b9c3c2", "#c98b4f", "#7a2a22"];
+      bands.forEach(([y0, y1, t]) => {
+        for (let i = 0; i < 24; i++) {
+          const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          const s = 6 + rnd() * 12;
+          r.setAttribute("x", 60 + rnd() * 960); r.setAttribute("y", y0 + rnd() * (y1 - y0));
+          r.setAttribute("width", s); r.setAttribute("height", s);
+          r.setAttribute("fill", cols[Math.floor(rnd() * cols.length)]);
+          r.setAttribute("opacity", 0);
+          dust.appendChild(r);
+          const d = t + rnd() * 0.25;
+          tl.fromTo(r, { opacity: 0, x: 0, y: 0 }, { opacity: 0.9, duration: 0.08 }, d);
+          tl.to(r, { x: (rnd() - 0.5) * 160, y: -120 - rnd() * 260, opacity: 0, rotation: rnd() * 180, transformOrigin: "50% 50%", duration: 0.7 + rnd() * 0.4, ease: "power2.out" }, d + 0.08);
+        }
+      });
+
+      // MAMAK lettering bursts into particles, left to right (table-driven, repainted from time)
+      const cv = document.getElementById("s1-pcanvas");
+      const cx = cv.getContext("2d");
+      const off = document.createElement("canvas");
+      off.width = 1080; off.height = 600;
+      const ox = off.getContext("2d", { willReadFrequently: true });
+      ox.font = "150px 'Archivo Black', 'Arial Black', sans-serif";
+      ox.textAlign = "center"; ox.textBaseline = "alphabetic";
+      ox.fillStyle = "#fff"; ox.fillText("MAMAK", 480, 398);
+      const px = ox.getImageData(0, 0, 1080, 600).data;
+      const parts = [];
+      for (let y = 260; y < 420; y += 5) for (let x = 60; x < 900; x += 5) {
+        if (px[(y * 1080 + x) * 4 + 3] > 127) {
+          const a = rnd() * Math.PI * 2;
+          parts.push({ x, y, at: T(1.05 + ((x - 140) / 680) * 0.7 + rnd() * 0.08), dur: 0.6 + rnd() * 0.5, d: 80 + rnd() * 320, ax: Math.cos(a), ay: Math.sin(a) - 0.8, r: 2 + rnd() * 3.5 });
+        }
+      }
+      const paint = (t) => {
+        cx.clearRect(0, 0, 1080, 1920);
+        cx.fillStyle = "#d93a2b";
+        for (const p of parts) {
+          const v = (t - p.at) / p.dur;
+          if (v <= 0 || v >= 1) continue;
+          const e = 1 - Math.pow(1 - v, 2);
+          cx.globalAlpha = 1 - v;
+          cx.fillRect(p.x + p.ax * p.d * e, p.y + p.ay * p.d * e, p.r, p.r);
+        }
+        cx.globalAlpha = 1;
+      };
+      tl.to({ p: 0 }, { p: 1, duration: 7.0, ease: "none", onUpdate: () => paint(tl.time()) }, 0);
+      tl.fromTo("#s1-mamak", { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 100%)", duration: 1.2, ease: "power1.inOut" }, 1.05);
+
+      // hook line, then out
+      tl.fromTo("#s1-ask", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(10px)", duration: 0.22, ease }, 1.0);
+      // lights flicker, then everything dissolves top-down
+      tl.to("#s1-tube1", { keyframes: [{ opacity: 0.3, duration: 0.05 }, { opacity: 1, duration: 0.05 }, { opacity: 0.2, duration: 0.05 }, { opacity: 1, duration: 0.06 }] }, 0.8);
+      tl.to("#s1-tube2", { keyframes: [{ opacity: 0.2, duration: 0.05 }, { opacity: 1, duration: 0.06 }, { opacity: 0.4, duration: 0.05 }, { opacity: 1, duration: 0.05 }] }, 0.84);
+      const out = (sel, t) => tl.fromTo(sel, { opacity: 1, y: 0, filter: "blur(0px)" }, { opacity: 0, y: -70, filter: "blur(14px)", duration: 0.5, ease }, t);
+      out("#s1-tube1", 1.15);
+      out("#s1-tube2", 1.15);
+      out("#s1-fans", 1.2);
+      out("#s1-awning", 1.3);
+      out("#s1-people", 1.4);
+      out("#s1-cups", 1.5);
+      out("#s1-wall", 1.65);
+      out("#s1-tables", 1.8);
+      out("#s1-sign", 1.95);
+      out("#s1-diners", 1.45);
+      out("#s1-stools", 2.0);
+      out("#s1-interior", 2.15);
+      out("#s1-facade", 2.4);
+      tl.fromTo("#s1-outline", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 2.5);
+      tl.fromTo("#s1-lone", { opacity: 0 }, { opacity: 1, duration: 0.08 }, 2.45);
+      tl.fromTo("#s1-face", { y: 60 }, { y: 0, duration: 0.35, ease: "back.out(1.8)" }, 2.45);
+      tl.to("#s1-face", { keyframes: [{ x: -10, duration: 0.05 }, { x: 10, duration: 0.05 }, { x: -8, duration: 0.05 }, { x: 8, duration: 0.05 }, { x: 0, duration: 0.05 }] }, 2.85);
+      tl.fromTo("#s1-sweat", { y: 0, opacity: 1 }, { y: 120, opacity: 0, duration: 0.9, ease: "power2.in" }, 3.0);
+
+      // title per word
+      ["#s1-w1", "#s1-w2", "#s1-w3"].forEach((w, i) => {
+        tl.fromTo(w, { opacity: 0, filter: "blur(10px)", scale: 1.08 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.16, ease: "power4.out" }, 2.65 + i * 0.16);
+      });
+
+      // whip up into the phone
+      tl.to("#s1-stage", { y: -420, filter: "blur(18px)", opacity: 0.2, duration: 0.28, ease: "power3.in" }, 4.32);
+      window.__timelines["s1"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,149 @@
+<template>
+  <style>
+    @font-face { font-family: "Noto Sans HK"; src: url("assets/fonts/NotoSansHK-VF.ttf"); font-weight: 100 900; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s5-bg { position: absolute; inset: 0; background: #10343c; }
+    #s5-year { position: absolute; left: 0; width: 1080px; top: 640px; text-align: center; font: 900 190px/1.05 "Noto Sans HK", sans-serif; color: #fff6e5; }
+    #s5-year .b { font-size: 150px; }
+    #s5-year span { display: inline-block; }
+    #s5-cam { position: absolute; inset: 0; }
+    #s5-city { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #s5-t { position: absolute; left: 60px; right: 60px; top: 220px; text-align: center; }
+    #s5-t1 { font: 900 76px/1.15 Inter, "Noto Sans HK", sans-serif; color: #fff6e5; letter-spacing: -0.02em; }
+    #s5-t2 { font: 900 80px/1.15 Inter, "Noto Sans HK", sans-serif; color: #f2c230; letter-spacing: -0.02em; margin-top: 8px; }
+    #s5-cafe { position: absolute; inset: 0; }
+    #s5-card { position: absolute; left: 140px; top: 300px; width: 800px; background: #fbfaf6; border-radius: 26px; box-shadow: 0 16px 0 rgba(0,0,0,.25); padding: 56px 64px; }
+    #s5-card .brand { font: 800 40px Inter, "Noto Sans HK", sans-serif; color: #5c676b; }
+    #s5-card .rule { height: 4px; background: #e3ded1; margin: 30px 0 40px; }
+    #s5-card .item { font: 900 70px Inter, "Noto Sans HK", sans-serif; color: #1d2326; letter-spacing: -0.02em; }
+    #s5-price { white-space: nowrap; font: 900 132px/1.1 "Noto Sans HK", sans-serif; color: #d93a2b; margin-top: 18px; font-variant-numeric: tabular-nums; }
+    #s5-old { font: 800 42px Inter, "Noto Sans HK", sans-serif; color: #5c676b; margin-top: 16px; }
+    #s5-old s { text-decoration-thickness: 5px; }
+    #s5-ct { position: absolute; left: 60px; right: 60px; top: 1060px; text-align: center; }
+    #s5-c1 { font: 900 76px/1.15 Inter, "Noto Sans HK", sans-serif; color: #fff6e5; letter-spacing: -0.02em; }
+    #s5-c2 { font: 900 76px/1.15 Inter, "Noto Sans HK", sans-serif; color: #f2c230; letter-spacing: -0.02em; margin-top: 8px; }
+  </style>
+  <div data-hf-id="hf-ejdb" id="root" data-composition-id="s5" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-zopz" id="s5-bg"></div>
+    <div data-hf-id="hf-057f" id="s5-cam">
+      <svg data-hf-id="hf-k106" id="s5-city" viewBox="0 0 1080 1920">
+        <rect data-hf-id="hf-ch5t" x="90" y="520" width="900" height="1400" fill="#23474f" />
+        <rect data-hf-id="hf-ldn1" x="70" y="500" width="940" height="30" fill="#2c5761" />
+        <g data-hf-id="hf-d7r9" id="s5-wins"></g>
+      </svg>
+    </div>
+    <div data-hf-id="hf-8bf2" id="s5-t"><div data-hf-id="hf-8vw6" id="s5-t1">個個匿埋喺屋企。</div><div data-hf-id="hf-v8gc" id="s5-t2">滑手機。一個人。</div></div>
+    <div data-hf-id="hf-dd51" id="s5-year"><span data-hf-id="hf-bpqq" class="a">一年</span><br data-hf-id="hf-x5px"><span data-hf-id="hf-ypsy" class="b">之後</span></div>
+    <div data-hf-id="hf-2mfx" id="s5-cafe">
+      <div data-hf-id="hf-vpc8" id="s5-card">
+        <div data-hf-id="hf-al9k" class="brand">Kopi &amp; Co. · artisan café</div>
+        <div data-hf-id="hf-a46i" class="rule"></div>
+        <div data-hf-id="hf-wj4p" class="item">拉茶</div>
+        <div data-hf-id="hf-2lnt" id="s5-price">RM 2.50</div>
+        <div data-hf-id="hf-mnog" id="s5-old">以前嘛嘛檔： <s data-hf-id="hf-wr04">RM 2.50</s></div>
+      </div>
+      <div data-hf-id="hf-tt3b" id="s5-ct"><div data-hf-id="hf-pcb0" id="s5-c1">新 cafe 開張。</div><div data-hf-id="hf-d7cp" id="s5-c2">但冇人同隔籬枱傾偈。</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // re-timed to the narration: old scene times map onto the voice
+      const MAPK = [[0,0],[1,0.533],[2.6,0.834],[3.3,2.486],[6.2,4.265],[6.8,5.947],[7.95,7.105],[8.25,8.466],[10.55,11.002],[10.8,11.302]];
+      const T = (t) => { for (let i = 1; i < MAPK.length; i++) { const [a0, b0] = MAPK[i - 1], [a1, b1] = MAPK[i]; if (t <= a1) return b0 + ((t - a0) * (b1 - b0)) / (a1 - a0); } const [a, b] = MAPK[MAPK.length - 1]; return b + (t - a); };
+      ["to", "fromTo", "set"].forEach((m) => { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = T(a[i]); return f(...a); }; });
+      const NS = "http://www.w3.org/2000/svg";
+      const wins = document.getElementById("s5-wins");
+      let seed = 0x1a2b3c;
+      const rnd = () => ((seed = (Math.imul(1664525, seed) + 1013904223) >>> 0) / 4294967296);
+      const cells = [];
+      for (let r = 0; r < 6; r++) for (let c = 0; c < 4; c++) cells.push([150 + c * 210, 590 + r * 220]);
+      const mk = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+      // every window has someone alone doing something different (7 actions, repeated)
+      const SIL = "#183339", GLOW = "#bfe6ff";
+      const loop = (el, from, to, dur, at) => tl.fromTo(el, from, Object.assign({ duration: dur, ease: "sine.inOut", repeat: Math.ceil(9 / dur), yoyo: true }, to), at);
+      const person = (p, x, y, cx, cy) => { mk("path", { d: `M${cx - 36} ${y + 160}q36-74 72 0z`, fill: SIL }, p); return mk("circle", { cx, cy, r: 22, fill: SIL }, p); };
+      const acts = [
+        (p, x, y, at) => { // scrolling the phone
+          person(p, x, y, x + 75, y + 78);
+          mk("rect", { x: x + 62, y: y + 108, width: 26, height: 38, rx: 4, fill: GLOW }, p);
+          const ln = mk("rect", { x: x + 66, y: y + 134, width: 18, height: 5, rx: 2, fill: "#7fb0cc" }, p);
+          loop(ln, { y: 0 }, { y: -20 }, 0.35, at);
+        },
+        (p, x, y, at) => { // watching TV, light changing on the wall
+          const tv = mk("rect", { x: x + 12, y: y + 18, width: 70, height: 44, rx: 3, fill: "#7fd1a0" }, p);
+          mk("path", { d: `M${x + 60} ${y + 160}q40-60 80 0z`, fill: SIL }, p); mk("circle", { cx: x + 100, cy: y + 96, r: 22, fill: SIL }, p);
+          tl.to(tv, { keyframes: [{ fill: "#ffb86b", duration: 0.6 }, { fill: GLOW, duration: 0.6 }, { fill: "#e86a8f", duration: 0.6 }, { fill: "#7fd1a0", duration: 0.6 }], repeat: 4 }, at);
+        },
+        (p, x, y, at) => { // instant noodles, chopsticks to mouth
+          person(p, x, y, x + 75, y + 76);
+          mk("path", { d: `M${x + 45} ${y + 128}h60a30 22 0 0 1 -60 0z`, fill: "#fff6e5" }, p);
+          const ch = mk("g", {}, p);
+          mk("rect", { x: x + 86, y: y + 92, width: 4, height: 46, fill: "#c98b4f" }, ch); mk("rect", { x: x + 94, y: y + 92, width: 4, height: 46, fill: "#c98b4f" }, ch);
+          loop(ch, { y: 10 }, { y: -12 }, 0.45, at);
+        },
+        (p, x, y, at) => { // laptop, nodding off
+          const h = person(p, x, y, x + 75, y + 80);
+          mk("path", { d: `M${x + 30} ${y + 116}h90l-8 40h-74z`, fill: "#2c5761" }, p);
+          mk("rect", { x: x + 38, y: y + 120, width: 74, height: 30, fill: GLOW }, p);
+          loop(h, { y: 0 }, { y: 7 }, 0.6, at);
+        },
+        (p, x, y, at) => { // gaming, controller shaking
+          const h = person(p, x, y, x + 75, y + 78);
+          const c = mk("rect", { x: x + 50, y: y + 118, width: 50, height: 20, rx: 9, fill: "#d93a2b" }, p);
+          loop(c, { x: -5, rotation: -8, svgOrigin: `${x + 75} ${y + 128}` }, { x: 5, rotation: 8 }, 0.12, at);
+          loop(h, { rotation: -6, svgOrigin: `${x + 75} ${y + 100}` }, { rotation: 6 }, 0.3, at);
+        },
+        (p, x, y, at) => { // lying on the sofa, phone above the face
+          mk("rect", { x: x + 8, y: y + 112, width: 134, height: 40, rx: 10, fill: "#2c5761" }, p);
+          mk("rect", { x: x + 40, y: y + 96, width: 96, height: 26, rx: 13, fill: SIL }, p);
+          mk("circle", { cx: x + 30, cy: y + 100, r: 18, fill: SIL }, p);
+          const ph = mk("rect", { x: x + 22, y: y + 46, width: 30, height: 20, rx: 4, fill: GLOW }, p);
+          loop(ph, { y: 0 }, { y: 8 }, 0.9, at);
+        },
+        (p, x, y, at) => { // video call, waving
+          person(p, x, y, x + 60, y + 80);
+          mk("rect", { x: x + 96, y: y + 40, width: 44, height: 62, rx: 5, fill: GLOW }, p);
+          const arm = mk("rect", { x: x + 72, y: y + 70, width: 12, height: 52, rx: 6, fill: SIL }, p);
+          loop(arm, { rotation: -25, svgOrigin: `${x + 78} ${y + 120}` }, { rotation: 20 }, 0.28, at);
+        },
+      ];
+      const lits = [];
+      const order0 = cells.map((c, i) => [i === 5 ? -1 : rnd(), i]).sort((a, b) => a[0] - b[0]).map((p) => p[1]);
+      cells.forEach(([x, y], i) => {
+        const g = mk("g", {}, wins);
+        mk("rect", { x, y, width: 150, height: 160, fill: "#183339" }, g);
+        const lit = mk("g", { opacity: 0 }, g);
+        mk("rect", { x, y, width: 150, height: 160, fill: "#5f87a3" }, lit);
+        const rank = order0.indexOf(i);
+        acts[i === 5 ? 0 : (i * 3 + 1) % acts.length](lit, x, y, rank === 0 ? 0.9 : 1.6 + rank * 0.07);
+        mk("rect", { x: x - 6, y: y + 160, width: 162, height: 10, fill: "#2c5761" }, g);
+        lits.push(lit);
+      });
+      // first lit window is the one we start inside (row 1, col 1)
+      const order = order0.map((i) => lits[i]);
+      order.forEach((l, i) => tl.fromTo(l, { opacity: 0 }, { opacity: 1, duration: 0.06 }, i === 0 ? 0.9 : 1.6 + i * 0.07));
+
+      tl.fromTo("#s5-year span", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out", stagger: 0.12 }, 0.05);
+      tl.to("#s5-year", { opacity: 0, filter: "blur(10px)", duration: 0.18, ease: "power2.in" }, 1.15);
+      // camera: inside one window, pull back to the whole block
+      tl.fromTo("#s5-cam", { scale: 4.2, transformOrigin: "435px 890px", y: 0 }, { scale: 1, duration: 1.7, ease: "power2.inOut" }, 1.0);
+      tl.fromTo("#s5-t1", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 2.6);
+      tl.fromTo("#s5-t2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 3.3);
+      // blur swap to the café
+      tl.to("#s5-cam, #s5-t", { opacity: 0, filter: "blur(12px)", duration: 0.2, ease: "power2.in" }, 6.2);
+      tl.fromTo("#s5-card", { opacity: 0, y: 80, rotation: 0 }, { opacity: 1, y: 0, rotation: -2, duration: 0.45, ease: "expo.out" }, 6.35);
+      tl.set("#s5-old", { opacity: 0 }, 0);
+      const price = document.getElementById("s5-price");
+      const prox = { v: 2.5 };
+      tl.fromTo(prox, { v: 2.5 }, { v: 12, duration: 1.0, ease: "power2.inOut", onUpdate: () => { price.textContent = "RM " + prox.v.toFixed(2); } }, 6.8);
+      tl.fromTo("#s5-price", { scale: 1 }, { keyframes: [{ scale: 1.1, duration: 0.07 }, { scale: 1, duration: 0.2, ease: "back.out(2)" }], transformOrigin: "0% 50%" }, 7.8);
+      tl.fromTo("#s5-old", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 7.9);
+      tl.fromTo("#s5-c1", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 7.95);
+      tl.fromTo("#s5-c2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 8.25);
+      tl.set("#s5-c1, #s5-c2, #s5-card", { opacity: 0 }, 0);
+      tl.to("#s5-cafe", { opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power2.in" }, 10.55);
+      window.__timelines["s5"] = tl;
+    })();
+  </script>
+</template>

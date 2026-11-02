@@ -1,0 +1,105 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s2-bg { position: absolute; inset: 0; background-color: #d6eadb; background-image: linear-gradient(#bfd8c7 3px, transparent 3px), linear-gradient(90deg, #bfd8c7 3px, transparent 3px); background-size: 60px 60px; }
+    #s2-back { position: absolute; inset: 0; }
+    #s2-phone { position: absolute; left: 150px; top: 230px; width: 780px; height: 1640px; border-radius: 96px; background: #1d2326; box-shadow: 0 18px 0 rgba(0,0,0,.22); }
+    #s2-screen { position: absolute; left: 24px; top: 24px; right: 24px; bottom: 24px; border-radius: 74px; background: #fbfaf6; overflow: hidden; }
+    #s2-head { position: absolute; left: 0; right: 0; top: 0; height: 170px; background: #10343c; color: #fff6e5; display: flex; align-items: flex-end; gap: 22px; padding: 0 40px 26px; }
+    #s2-head .av { width: 76px; height: 76px; border-radius: 50%; background: #f2c230; display: grid; place-items: center; font: 400 34px "Archivo Black", sans-serif; color: #10343c; }
+    #s2-head b { font: 900 42px/1.1 Inter, sans-serif; display: block; }
+    #s2-head small { font: 600 28px Inter, sans-serif; opacity: .75; }
+    .s2-b { position: absolute; max-width: 560px; padding: 18px 28px 20px; border-radius: 34px; font: 700 44px/1.15 Inter, sans-serif; color: #1d2326; background: #ebe8df; }
+    .s2-b i { display: block; font: 800 28px Inter, sans-serif; font-style: normal; margin-bottom: 4px; }
+    .s2-l { left: 34px; border-bottom-left-radius: 8px; transform-origin: 0% 100%; }
+    .s2-r { right: 34px; background: #2e6fd8; color: #fff; border-bottom-right-radius: 8px; transform-origin: 100% 100%; }
+    #s2-input { position: absolute; left: 24px; right: 24px; top: 1046px; height: 84px; border-radius: 42px; background: #fff; border: 3px solid #d9d4c7; font: 600 34px Inter, sans-serif; color: #9aa3a5; display: flex; align-items: center; padding: 0 32px; }
+    #s2-kb { position: absolute; left: 0; right: 0; top: 1150px; bottom: 0; background: #d3d7d9; }
+    .s2-k { position: absolute; width: 66px; height: 84px; border-radius: 12px; background: #fff; box-shadow: 0 3px 0 #9aa3a5; font: 600 38px/84px Inter, sans-serif; text-align: center; color: #1d2326; }
+    #s2-space { position: absolute; left: 186px; width: 360px; top: 340px; height: 84px; border-radius: 12px; background: #fff; box-shadow: 0 3px 0 #9aa3a5; }
+    #s2-veil { position: absolute; inset: 0; background: #10343c; opacity: 0; }
+    #s2-search { position: absolute; left: 70px; right: 70px; top: 520px; height: 150px; border-radius: 75px; background: #fff; box-shadow: 0 18px 0 rgba(0,0,0,.25); display: flex; align-items: center; gap: 28px; padding: 0 52px; font: 800 62px Inter, sans-serif; color: #1d2326; transform-origin: 50% 100%; }
+    #s2-caret { display: inline-block; width: 5px; height: 64px; background: #2e6fd8; vertical-align: middle; margin-left: 4px; }
+    #s2-card { position: absolute; left: 70px; right: 70px; top: 720px; height: 470px; border-radius: 44px; background: #fff; box-shadow: 0 18px 0 rgba(0,0,0,.25); transform-origin: 50% 0%; }
+    #s2-reel { position: absolute; left: 0; right: 0; top: 50px; height: 280px; overflow: hidden; text-align: center; }
+    #s2-reel-col { font: 400 260px/280px "Archivo Black", sans-serif; color: #1d2326; }
+    #s2-reel-col div { height: 280px; }
+    #s2-reel-col .zero { color: #d93a2b; }
+    #s2-res { position: absolute; left: 0; right: 0; top: 350px; text-align: center; font: 800 56px Inter, sans-serif; color: #5c676b; }
+    #s2-iris { position: absolute; inset: 0; background: #2e6fd8; clip-path: circle(0px at 540px 910px); }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1080" data-height="1920">
+    <div id="s2-bg"></div>
+    <div id="s2-back">
+      <div id="s2-phone">
+        <div id="s2-screen">
+          <div id="s2-head"><div class="av">GL</div><div><b>Geng Lepak</b><small>8 ahli</small></div></div>
+          <div id="s2-b1" class="s2-b s2-l" style="top:220px"><i style="color:#2f7d4f">Ahmad</i>Jom mamak?</div>
+          <div id="s2-b2" class="s2-b s2-r" style="top:360px">Mamak mana bro?</div>
+          <div id="s2-b3" class="s2-b s2-l" style="top:470px"><i style="color:#d93a2b">Mei Ling</i>Semua dah tutup??</div>
+          <div id="s2-b4" class="s2-b s2-l" style="top:610px"><i style="color:#2e6fd8">Ravi</i>24 jam pun tutup?!</div>
+          <div id="s2-input">Taip mesej…</div>
+          <div id="s2-kb"><div id="s2-space"></div></div>
+        </div>
+      </div>
+    </div>
+    <div id="s2-veil"></div>
+    <div id="s2-search">
+      <svg width="64" height="64" viewBox="0 0 44 44"><circle cx="18" cy="18" r="13" fill="none" stroke="#5c676b" stroke-width="5" /><path d="M28 28l11 11" stroke="#5c676b" stroke-width="5" stroke-linecap="round" /></svg>
+      <span><span id="s2-typed"></span><span id="s2-caret"></span></span>
+    </div>
+    <div id="s2-card">
+      <div id="s2-reel"><div id="s2-reel-col"><div>2,417</div><div>1,204</div><div>386</div><div>52</div><div>7</div><div class="zero">0</div></div></div>
+      <div id="s2-res">hasil dijumpai</div>
+    </div>
+    <div id="s2-iris"></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // re-timed to the narration: old scene times map onto the voice
+      const MAPK = [[0,0],[0.55,0.8],[1.1,1.68],[2.2,2.3],[4.35,3.55],[4.95,4],[5.4,4.4]];
+      const T = (t) => { for (let i = 1; i < MAPK.length; i++) { const [a0, b0] = MAPK[i - 1], [a1, b1] = MAPK[i]; if (t <= a1) return b0 + ((t - a0) * (b1 - b0)) / (a1 - a0); } const [a, b] = MAPK[MAPK.length - 1]; return b + (t - a); };
+      ["to", "fromTo", "set"].forEach((m) => { const f = tl[m].bind(tl); tl[m] = (...a) => { const i = a.length - 1; if (typeof a[i] === "number") a[i] = T(a[i]); return f(...a); }; });
+      // QWERTY keys, laid out once (static decoration inside the phone)
+      const kb = document.getElementById("s2-kb");
+      const rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+      const off = [4.5, 41, 114];
+      const keyEl = {};
+      rows.forEach((r, ri) => [...r].forEach((ch, i) => {
+        const k = document.createElement("div");
+        k.className = "s2-k"; k.textContent = ch;
+        k.style.left = off[ri] + i * 73 + "px"; k.style.top = 20 + ri * 106 + "px";
+        kb.appendChild(k); keyEl[ch] = k;
+      }));
+      keyEl[" "] = document.getElementById("s2-space");
+
+      tl.fromTo("#s2-phone", { y: 1500, filter: "blur(18px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0);
+      ["#s2-b1", "#s2-b2", "#s2-b3", "#s2-b4"].forEach((b, i) => {
+        tl.fromTo(b, { scale: 0.75, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(1.6)" }, 0.55 + i * 0.55);
+      });
+
+      // the search bar lifts off the phone into the foreground; the phone falls into bokeh
+      tl.fromTo("#s2-bg", { filter: "blur(0px)", scale: 1 }, { filter: "blur(12px)", scale: 1.06, duration: 0.4, ease: "power2.inOut" }, 2.6);
+      tl.fromTo("#s2-back", { filter: "blur(0px)", scale: 1 }, { filter: "blur(16px)", scale: 0.94, duration: 0.4, ease: "power2.inOut" }, 2.6);
+      tl.fromTo("#s2-veil", { opacity: 0 }, { opacity: 0.35, duration: 0.4, ease: "power2.inOut" }, 2.6);
+      tl.fromTo("#s2-search", { opacity: 0, y: 260, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "expo.out" }, 2.6);
+
+      const q = "mamak near me";
+      const typed = document.getElementById("s2-typed");
+      for (let i = 0; i <= q.length; i++) {
+        const t = 2.95 + i * 0.045;
+        tl.set(typed, { textContent: q.slice(0, i) }, t);
+        if (i > 0) { const k = keyEl[q[i - 1]]; tl.set(k, { backgroundColor: "#9aa3a5" }, t); tl.set(k, { backgroundColor: "#ffffff" }, t + 0.04); }
+      }
+      tl.set("#s2-caret", { opacity: 0 }, 3.0); tl.set("#s2-caret", { opacity: 1 }, 3.2); tl.set("#s2-caret", { opacity: 0 }, 3.6);
+
+      tl.fromTo("#s2-card", { opacity: 0, y: -40, scaleY: 0.6 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.3, ease: "expo.out" }, 3.5);
+      tl.fromTo("#s2-reel-col", { y: 0 }, { y: -1400, duration: 0.75, ease: "power3.inOut" }, 3.6);
+      tl.fromTo("#s2-reel-col .zero", { scale: 1 }, { keyframes: [{ scale: 1.25, duration: 0.08 }, { scale: 1, duration: 0.2, ease: "back.out(2)" }] }, 4.35);
+      tl.to("#s2-card", { keyframes: [{ x: -14, duration: 0.04 }, { x: 12, duration: 0.04 }, { x: -8, duration: 0.04 }, { x: 0, duration: 0.04 }] }, 4.35);
+      tl.fromTo("#s2-iris", { clipPath: "circle(0px at 540px 910px)" }, { clipPath: "circle(2300px at 540px 910px)", duration: 0.45, ease: "power3.in" }, 4.95);
+      window.__timelines["s2"] = tl;
+    })();
+  </script>
+</template>

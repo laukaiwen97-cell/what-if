@@ -1,0 +1,40 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s9-black { position: absolute; inset: 0; background: #000; }
+    #s9-bg { position: absolute; inset: 0; background: #f2c230; }
+    #s9-logo { position: absolute; left: 0; right: 0; top: 440px; text-align: center; color: #1d2326; }
+    #s9-a { font: 400 150px/1 "Archivo Black", sans-serif; }
+    #s9-b { font: 400 128px/1.1 "Archivo Black", sans-serif; }
+    #s9-c { font: 400 210px/1 "Archivo Black", sans-serif; color: #d93a2b; margin-top: 6px; }
+    #s9-c span { display: inline-block; }
+    #s9-ep { font: 900 44px Inter, sans-serif; margin-top: 24px; color: #1d2326; }
+    #s9-next { position: absolute; left: 140px; right: 140px; top: 1120px; height: 170px; border-radius: 26px; background: #10343c; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
+    #s9-next b { font: 900 40px Inter, sans-serif; color: #f2c230; }
+    #s9-next div { font: 900 60px Inter, sans-serif; color: #fff6e5; letter-spacing: -0.02em; }
+  </style>
+  <div data-hf-id="hf-0w2b" id="root" data-composition-id="s9" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-ea8j" id="s9-black"></div>
+    <div data-hf-id="hf-5y6j" id="s9-bg">
+      <div data-hf-id="hf-bvd7" id="s9-logo">
+        <div data-hf-id="hf-xrm7" id="s9-a">KALAU</div>
+        <div data-hf-id="hf-mje3" id="s9-b">TIBA-TIBA</div>
+        <div data-hf-id="hf-4jil" id="s9-c"><span data-hf-id="hf-j7ez">H</span><span data-hf-id="hf-jlq0">I</span><span data-hf-id="hf-hm6v">L</span><span data-hf-id="hf-ms68">A</span><span data-hf-id="hf-gtkt">N</span><span data-hf-id="hf-kec2">G</span></div>
+        <div data-hf-id="hf-ni9x" id="s9-ep">Siri falsafah · EP 01 / 30</div>
+      </div>
+      <div data-hf-id="hf-3bk9" id="s9-next"><b data-hf-id="hf-7nzv">ESOK</b><div data-hf-id="hf-xmu7">Kalau Grab hilang…</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s9-bg", { opacity: 0 }, { keyframes: [{ opacity: 1, duration: 0.04 }, { opacity: 0.15, duration: 0.06 }, { opacity: 1, duration: 0.04 }, { opacity: 0.5, duration: 0.05 }, { opacity: 1, duration: 0.04 }] }, 0.05);
+      const off = [[-40, -60, -14], [30, 70, 10], [-20, 90, -18], [50, -50, 12], [-60, 40, 16], [20, -80, -10]];
+      gsap.utils.toArray("#s9-c span").forEach((s, i) => {
+        tl.fromTo(s, { x: off[i][0], y: off[i][1], rotation: off[i][2], opacity: 0.4 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: 0.45, ease: "back.out(1.7)" }, 0.35 + i * 0.04);
+      });
+      tl.fromTo("#s9-next", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, 0.8);
+      window.__timelines["s9"] = tl;
+    })();
+  </script>
+</template>
